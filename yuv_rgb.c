@@ -1009,10 +1009,10 @@ PACK_RGB24_32_STEP(R1, R2, G1, G2, B1, B2, RGB1, RGB2, RGB3, RGB4, RGB5, RGB6) \
 	r_16_1=r_uv_16_1; g_16_1=g_uv_16_1; b_16_1=b_uv_16_1; \
 	r_16_2=r_uv_16_2; g_16_2=g_uv_16_2; b_16_2=b_uv_16_2; \
 	\
-	__m128i y = LOAD_SI128((const __m128i*)(y_ptr1)); \
-	y = _mm_sub_epi8(y, _mm_set1_epi8(param->y_offset)); \
-	y_16_1 = _mm_unpacklo_epi8(y, _mm_setzero_si128()); \
-	y_16_2 = _mm_unpackhi_epi8(y, _mm_setzero_si128()); \
+	__m128i y_tmp = LOAD_SI128((const __m128i*)(y_ptr1)); \
+	y_tmp = _mm_sub_epi8(y_tmp, _mm_set1_epi8(param->y_offset)); \
+	y_16_1 = _mm_unpacklo_epi8(y_tmp, _mm_setzero_si128()); \
+	y_16_2 = _mm_unpackhi_epi8(y_tmp, _mm_setzero_si128()); \
 	\
 	ADD_Y2RGB_16(y_16_1, y_16_2, r_16_1, g_16_1, b_16_1, r_16_2, g_16_2, b_16_2) \
 	\
@@ -1024,10 +1024,10 @@ PACK_RGB24_32_STEP(R1, R2, G1, G2, B1, B2, RGB1, RGB2, RGB3, RGB4, RGB5, RGB6) \
 	r_16_1=r_uv_16_1; g_16_1=g_uv_16_1; b_16_1=b_uv_16_1; \
 	r_16_2=r_uv_16_2; g_16_2=g_uv_16_2; b_16_2=b_uv_16_2; \
 	\
-	y = LOAD_SI128((const __m128i*)(y_ptr2)); \
-	y = _mm_sub_epi8(y, _mm_set1_epi8(param->y_offset)); \
-	y_16_1 = _mm_unpacklo_epi8(y, _mm_setzero_si128()); \
-	y_16_2 = _mm_unpackhi_epi8(y, _mm_setzero_si128()); \
+	y_tmp = LOAD_SI128((const __m128i*)(y_ptr2)); \
+	y_tmp = _mm_sub_epi8(y_tmp, _mm_set1_epi8(param->y_offset)); \
+	y_16_1 = _mm_unpacklo_epi8(y_tmp, _mm_setzero_si128()); \
+	y_16_2 = _mm_unpackhi_epi8(y_tmp, _mm_setzero_si128()); \
 	\
 	ADD_Y2RGB_16(y_16_1, y_16_2, r_16_1, g_16_1, b_16_1, r_16_2, g_16_2, b_16_2) \
 	\
@@ -1043,10 +1043,10 @@ PACK_RGB24_32_STEP(R1, R2, G1, G2, B1, B2, RGB1, RGB2, RGB3, RGB4, RGB5, RGB6) \
 	r_16_1=r_uv_16_1; g_16_1=g_uv_16_1; b_16_1=b_uv_16_1; \
 	r_16_2=r_uv_16_2; g_16_2=g_uv_16_2; b_16_2=b_uv_16_2; \
 	\
-	y = LOAD_SI128((const __m128i*)(y_ptr1+16)); \
-	y = _mm_sub_epi8(y, _mm_set1_epi8(param->y_offset)); \
-	y_16_1 = _mm_unpacklo_epi8(y, _mm_setzero_si128()); \
-	y_16_2 = _mm_unpackhi_epi8(y, _mm_setzero_si128()); \
+	y_tmp = LOAD_SI128((const __m128i*)(y_ptr1+16)); \
+	y_tmp = _mm_sub_epi8(y_tmp, _mm_set1_epi8(param->y_offset)); \
+	y_16_1 = _mm_unpacklo_epi8(y_tmp, _mm_setzero_si128()); \
+	y_16_2 = _mm_unpackhi_epi8(y_tmp, _mm_setzero_si128()); \
 	\
 	ADD_Y2RGB_16(y_16_1, y_16_2, r_16_1, g_16_1, b_16_1, r_16_2, g_16_2, b_16_2) \
 	\
@@ -1058,10 +1058,10 @@ PACK_RGB24_32_STEP(R1, R2, G1, G2, B1, B2, RGB1, RGB2, RGB3, RGB4, RGB5, RGB6) \
 	r_16_1=r_uv_16_1; g_16_1=g_uv_16_1; b_16_1=b_uv_16_1; \
 	r_16_2=r_uv_16_2; g_16_2=g_uv_16_2; b_16_2=b_uv_16_2; \
 	\
-	y = LOAD_SI128((const __m128i*)(y_ptr2+16)); \
-	y = _mm_sub_epi8(y, _mm_set1_epi8(param->y_offset)); \
-	y_16_1 = _mm_unpacklo_epi8(y, _mm_setzero_si128()); \
-	y_16_2 = _mm_unpackhi_epi8(y, _mm_setzero_si128()); \
+	y_tmp = LOAD_SI128((const __m128i*)(y_ptr2+16)); \
+	y_tmp = _mm_sub_epi8(y_tmp, _mm_set1_epi8(param->y_offset)); \
+	y_16_1 = _mm_unpacklo_epi8(y_tmp, _mm_setzero_si128()); \
+	y_16_2 = _mm_unpackhi_epi8(y_tmp, _mm_setzero_si128()); \
 	\
 	ADD_Y2RGB_16(y_16_1, y_16_2, r_16_1, g_16_1, b_16_1, r_16_2, g_16_2, b_16_2) \
 	\
