@@ -3,10 +3,12 @@
 
 #include "yuv_rgb.h"
 
+#ifndef __ANDROID__
 #ifdef _MSC_VER
 #include <emmintrin.h>
 #else
 #include <x86intrin.h>
+#endif
 #endif
 
 #include <stdio.h>
